@@ -1,9 +1,13 @@
-import InputText from "./InputText"
+/* import InputText from "./InputText"
+import InputChecked from "./InputChecked";
+import InputSelect from "./InputSelect"; */
 
-function Filters (params) {
+function Filters(prop) {
 
     return (
-        <InputText/>
+        <form>
+           
+        </form>
     )
 }
 

@@ -1,0 +1,16 @@
+.card-item {
+    border: 2px solid salmon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    min-width: 100px;
+
+    &-img {
+        width: 50px;
+    }
+
+    &-house{
+        width: 20px;
+    }
+}
