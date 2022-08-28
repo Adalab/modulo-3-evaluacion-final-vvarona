@@ -8,8 +8,8 @@ function InputSelect(prop) {
 
     return (
         <>
-            <label htmlFor="select" >{prop.labelText}</label>
-            <select name="select" value={prop.value} onChange={prop.onChange}>
+            <label htmlFor={prop.labelText}>{prop.labelText}</label>
+            <select name="select" id={prop.labelText} value={prop.value} onChange={prop.onChange}>
                 {mapedOptions}
                 <option value='all'>Todos</option>
             </select>

@@ -12,7 +12,7 @@ function InputChecked(prop) {
                     type="checkbox"
                     id={item}
                     name={prop.name}
-                    checked={prop.checked}
+                    
                     onChange={prop.handleChecked}
                 />
                 <label

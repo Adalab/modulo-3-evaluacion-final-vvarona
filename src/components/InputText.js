@@ -1,7 +1,7 @@
 function InputText(prop) {
     return (
         <>
-            <label htmlFor='quote'>{prop.labelText}</label>
+            <label htmlFor={prop.inputId}>{prop.labelText}</label>
             <input
                 type='text'
                 id={prop.inputId}

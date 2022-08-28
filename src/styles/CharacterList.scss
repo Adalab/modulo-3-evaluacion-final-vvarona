@@ -1,0 +1,28 @@
+.list-cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-item {
+    color: antiquewhite;
+    background-color: rgb(118, 112, 83);
+    border-radius:  4px; ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    min-width: 100px;
+    margin: 5px;
+
+    &-img {
+        width: 50px;
+    }
+
+    &-emblem{
+        width: 10em;
+    }
+
+    &-species{
+        text-transform: capitalize;
+    }
+}

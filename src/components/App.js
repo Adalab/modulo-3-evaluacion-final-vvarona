@@ -5,7 +5,7 @@ import ls from '../services/LocalStorage'
 import InputSelect from './InputSelect';
 import InputChecked from './InputChecked';
 import InputText from './InputText';
-
+import RenderCharactersData from './CharacterList';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
   const [nameInput, setNameInput] = useState('');
   const [houseInput, setHouseInput] = useState('Gryffindor')
   const [speciesInput, setSpeciesInput] = useState('human')
-  //const [checkInput, setCheckInput] = useState(false)
+  const [checkInput, setCheckInput] = useState([])
 
 
   useEffect(() => {
@@ -48,11 +48,10 @@ function App() {
     setSpeciesInput(ev.target.value);
   }
 
-  /*   const handleChecked = (ev) => {
-      ev.preventDefault();
-     console.log(ev.target.id);;
-      
-    } */
+  const handleChecked = (ev) => {
+    setCheckInput([...InputChecked], ev.target.value)
+
+  }
 
 
   const filteredHouse = (characterList) => {
@@ -88,30 +87,12 @@ function App() {
     }
     ).filter((item) => item.name.toLowerCase().includes(nameInput.toLowerCase()))
 
-  /* const noResults = () => {
-    if (filterCards.length === -1)
-    return console.log('oh no, no hay ningun resultado');
-  } */
+
+  const handleCardClick = (ev) => {
+    console.log('cliki en el card de: ' + ev.currentTarget.id);
+  }
 
 
-
-  const renderCharactersData = filterCards.map((item, index) => {
-
-    return (
-      <li className='card-item' key={index}>
-        <div className='card-item-more'>+</div>
-        <img
-          className='card-item-img'
-          src={item.image}
-          title={item.imageAlt}
-          alt={item.imageAlt}
-        />
-        <h3 className='card-item-name'>{item.name}</h3>
-        <p className='card-item-species'>{item.species}</p>
-        <div className='card-item-house'><p>{item.house}</p></div>
-      </li>
-    )
-  })
 
 
   return (
@@ -139,23 +120,33 @@ function App() {
           value={speciesInput}
           onChange={handleSelectInputForSpecies}
         />
-        {/* <InputChecked
+        <InputChecked
           labelText={'Especie: '}
           optionsArray={filteredSpecies(charactersData)}
-          checked={checkInput}
+
           onChange={handleChecked}
 
-        /> */}
+        />
         <button onClick={handleResetButton}>Resest Filters</button>
 
       </form>
 
-      <section className='list-cards'>
-        <p>Se encontraron {renderCharactersData.length} resultados </p>
-        {renderCharactersData}
-      </section>
 
 
+      <RenderCharactersData
+        onClick={handleCardClick}
+        filterCards={filterCards}
+      />
+
+
+
+      <footer className='footer'>
+        <a
+          href="#top"
+          className="footer-arrow">
+          <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba"></i>
+        </a>
+      </footer>
 
     </div>
   );

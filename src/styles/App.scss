@@ -1,16 +1,24 @@
-.card-item {
-    border: 2px solid salmon;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 300px;
-    min-width: 100px;
 
-    &-img {
-        width: 50px;
-    }
+html {
+    scroll-behavior: smooth;
+  }
 
-    &-house{
-        width: 20px;
+.footer-arrow {
+    color:blue;
+    position:fixed;
+    padding: 20px;
+    margin: 0 16px 8px 0;
+    bottom: 0;
+    right: 0;
+    transition-property: color;
+    cursor: pointer;
+    transition-duration: 5000ms;
+    text-align: center;
+    //width: 20px;
+    
+    &:active {
+        color:red;
+        //width: 30px;
+        
     }
 }
