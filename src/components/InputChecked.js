@@ -8,17 +8,16 @@ function InputChecked(prop) {
 
         return (
             <React.Fragment key={i}>
-                <input 
-                    type="checkbox" 
-                    id={`checkbox${i}`} 
-                    name={`checkbox${i}`} 
-                    value={item} 
-                    
+                <input
+                    type="checkbox"
+                    id={item}
+                    name={prop.name}
+                    checked={prop.checked}
+                    onChange={prop.handleChecked}
                 />
-                <label 
-                    htmlFor={`checkbox${i}`}
-                > 
-                    {item} 
+                <label
+                    htmlFor={item}>
+                    {item}
                 </label>
             </React.Fragment>
         )

@@ -11,6 +11,7 @@ function InputSelect(prop) {
             <label htmlFor="select" >{prop.labelText}</label>
             <select name="select" value={prop.value} onChange={prop.onChange}>
                 {mapedOptions}
+                <option value='all'>Todos</option>
             </select>
         </>
     )

@@ -22,8 +22,6 @@ const callToApi = () => {
       )
       )
 
-      console.log('result:', result);
-
       return result;
     })
     .catch((error) => {
