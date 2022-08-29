@@ -17,6 +17,7 @@ function InputChecked(prop) {
                     type="checkbox"
                     name='species'
                     value={item}
+                    checked={prop.checkedValues.includes(item)}
                     onChange={handleCheckFilter}
                 />
                 <label

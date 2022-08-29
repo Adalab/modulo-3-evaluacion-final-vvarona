@@ -1,21 +1,23 @@
 import '../styles/App.scss';
 import '../styles/Filter.scss';
 import { useState, useEffect } from 'react';
-import {Route, Routes} from "react";
+import { Route, Routes } from "react-router-dom";
 import callToApi from '../services/Fetch';
-import ls from '../services/LocalStorage'
+//import ls from '../services/LocalStorage'
 import InputSelect from './InputSelect';
 import InputChecked from './InputChecked';
 import InputText from './InputText';
 import RenderCharactersData from './CharacterList';
+import CharacterDetail from './CharacterDetail';
+import { matchPath, useLocation } from "react-router";
 
 function App() {
 
   const [charactersData, setCharactersData] = useState([]) // useState(ls.get('HarryPotterData', []));
   const [nameInput, setNameInput] = useState('');
-  const [houseInput, setHouseInput] = useState('Gryffindor')
-  //const [speciesInput, setSpeciesInput] = useState('human')
-  const [checkInput, setCheckInput] = useState([])
+  const [houseInput, setHouseInput] = useState('Gryffindor');
+  const [checkInput, setCheckInput] = useState([]);
+
 
 
   useEffect(() => {
@@ -31,7 +33,6 @@ function App() {
     ev.preventDefault();
     setNameInput('')
     setHouseInput('Gryffindor')
-    //setSpeciesInput('human')
     setCheckInput([])
   }
 
@@ -45,11 +46,6 @@ function App() {
     ev.preventDefault()
     setHouseInput(ev.target.value);
   }
-
-/*   const handleSelectInputForSpecies = (ev) => {
-    ev.preventDefault();
-    setSpeciesInput(ev.target.value);
-  } */
 
   const handleClickCheck = (value) => {
 
@@ -87,86 +83,88 @@ function App() {
         return (character.house === houseInput)
       }
     }
-    )/* .filter((character) => {
-      if (speciesInput === 'all') {
-        return true
-      } else {
-        return (character.species === speciesInput)
-      }
-    }
-    ) */.filter((character) => {
-      if (checkInput.length !== 0){
-      return checkInput.includes(character.species)
-    } return true 
-    },  
-    
+    ).filter((character) => {
+      if (checkInput.length !== 0) {
+        return checkInput.includes(character.species)
+      } return true
+    },
+
     ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase()))
 
-
-
+  const { pathname } = useLocation();
+  console.log('pathname:', pathname);
+  const dataPath = matchPath("user/:characterId", pathname)
+  console.log('dataPath:', dataPath);
+  const characterId = dataPath !== null ? dataPath.params.characterId : null;
+  console.log('characterId:', characterId);
+  console.log('charactersData:', charactersData.length);
+  const characterFound = charactersData.find(character => { return character.id === characterId })
+  console.log('characterFound: ' + characterFound);
 
   return (
 
-
     <div className='app'>
+
       <header>
         <h1 className='header-title'>Harry Potter Characters</h1>
       </header>
-      
-      <form className='form'>
 
-        <fildset className='input-name'>
+      <Routes>
+        <Route
+          path={"/"}
+          element={<>
 
-          <InputText
-            labelText={'Nombre: '}
-            inputId={'name'}
-            placeholder={'Escribe un nombre '}
-            inputValue={nameInput}
-            onChange={handleNameInput}
-            classNameInput={'form-text-input'}
-            classNameLabel={'form-text-label'}
-          />
+            <form className='form'>
 
-        </fildset>
-        <InputSelect
-          labelText={'Casas: '}
-          optionsArray={filteredHouse(charactersData)}
-          value={houseInput}
-          onChange={handleSelectInputForHouse}
+              <InputText
+                labelText={'Nombre: '}
+                inputId={'name'}
+                placeholder={'Escribe un nombre '}
+                inputValue={nameInput}
+                onChange={handleNameInput}
+                classNameInput={'form-text-input'}
+                classNameLabel={'form-text-label'}
+              />
+
+              <InputSelect
+                labelText={'Casas: '}
+                optionsArray={filteredHouse(charactersData)}
+                value={houseInput}
+                onChange={handleSelectInputForHouse}
+              />
+
+              <InputChecked
+                optionsArray={filteredSpecies(charactersData)}
+                checkedValues={checkInput}
+                handleChecked={handleClickCheck}
+              />
+
+              <button className='form-button' onClick={handleResetButton}>Resest Filters</button>
+
+            </form>
+
+            <RenderCharactersData
+              filterCards={filterCards}
+              texInputValue={nameInput}
+            />
+          </>}
         />
 
-        {/* <InputSelect
-          labelText={'Especie: '}
-          optionsArray={filteredSpecies(charactersData)}
-          value={speciesInput}
-          onChange={handleSelectInputForSpecies}
-        /> */}
-
-        <InputChecked
-          labelText={'Especie: '}
-          optionsArray={filteredSpecies(charactersData)}
-          value={checkInput}
-          handleChecked={handleClickCheck}
+        <Route
+          path='user/:characterId'
+          element={<CharacterDetail item={characterFound} />}
         />
 
-        <button className='form-button' onClick={handleResetButton}>Resest Filters</button>
+      </Routes>
 
-      </form>
 
-      <RenderCharactersData
-        // onClick={handleCardClick}
-        filterCards={filterCards}
-        texInputValue={nameInput}
-      />
 
 
 
       <footer className='footer'>
-        <a
-          href="#top"
-          className="footer-arrow">
-          <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba"></i>
-        </a>
+
+        <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba"></i>
+
       </footer>
 
     </div>
