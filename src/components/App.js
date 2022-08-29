@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import '../styles/Filter.scss';
 import { useState, useEffect } from 'react';
+import {Route, Routes} from "react";
 import callToApi from '../services/Fetch';
 import ls from '../services/LocalStorage'
 import InputSelect from './InputSelect';
@@ -13,7 +14,7 @@ function App() {
   const [charactersData, setCharactersData] = useState([]) // useState(ls.get('HarryPotterData', []));
   const [nameInput, setNameInput] = useState('');
   const [houseInput, setHouseInput] = useState('Gryffindor')
-  const [speciesInput, setSpeciesInput] = useState('human')
+  //const [speciesInput, setSpeciesInput] = useState('human')
   const [checkInput, setCheckInput] = useState([])
 
 
@@ -30,9 +31,10 @@ function App() {
     ev.preventDefault();
     setNameInput('')
     setHouseInput('Gryffindor')
-    setSpeciesInput('human')
+    //setSpeciesInput('human')
     setCheckInput([])
   }
+
 
   const handleNameInput = (ev) => {
     ev.preventDefault();
@@ -44,20 +46,18 @@ function App() {
     setHouseInput(ev.target.value);
   }
 
-  const handleSelectInputForSpecies = (ev) => {
+/*   const handleSelectInputForSpecies = (ev) => {
     ev.preventDefault();
     setSpeciesInput(ev.target.value);
-  }
+  } */
 
   const handleClickCheck = (value) => {
 
     if (checkInput.includes(value)) {
       const newList = checkInput.filter(item => item !== value)
-      console.log('value del check clicked is :' + newList);
       setCheckInput(newList)
     } else {
       setCheckInput([...checkInput, value])
-      console.log('else del if' + value);
     }
 
   }
@@ -87,14 +87,21 @@ function App() {
         return (character.house === houseInput)
       }
     }
-    ).filter((character) => {
+    )/* .filter((character) => {
       if (speciesInput === 'all') {
         return true
       } else {
         return (character.species === speciesInput)
       }
     }
-    ).filter((item) => item.name.toLowerCase().includes(nameInput.toLowerCase()))
+    ) */.filter((character) => {
+      if (checkInput.length !== 0){
+      return checkInput.includes(character.species)
+    } return true 
+    },  
+    
+    ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase()))
+
 
 
 
@@ -105,7 +112,7 @@ function App() {
       <header>
         <h1 className='header-title'>Harry Potter Characters</h1>
       </header>
-
+      
       <form className='form'>
 
         <fildset className='input-name'>
@@ -128,12 +135,12 @@ function App() {
           onChange={handleSelectInputForHouse}
         />
 
-        <InputSelect
+        {/* <InputSelect
           labelText={'Especie: '}
           optionsArray={filteredSpecies(charactersData)}
           value={speciesInput}
           onChange={handleSelectInputForSpecies}
-        />
+        /> */}
 
         <InputChecked
           labelText={'Especie: '}
@@ -145,8 +152,6 @@ function App() {
         <button className='form-button' onClick={handleResetButton}>Resest Filters</button>
 
       </form>
-
-
 
       <RenderCharactersData
         // onClick={handleCardClick}

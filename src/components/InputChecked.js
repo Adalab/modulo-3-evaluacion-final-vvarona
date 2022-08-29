@@ -15,7 +15,6 @@ function InputChecked(prop) {
             <React.Fragment key={i}>
                 <input
                     type="checkbox"
-
                     name='species'
                     value={item}
                     onChange={handleCheckFilter}
