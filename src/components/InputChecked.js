@@ -2,6 +2,11 @@ import React from "react";
 
 function InputChecked(prop) {
 
+    const handleCheckFilter = (ev) => {
+        prop.handleChecked(ev.target.value)
+    }
+
+   
     const array = prop.optionsArray;
 
     const mapedChecked = array.map((item, i) => {
@@ -10,13 +15,13 @@ function InputChecked(prop) {
             <React.Fragment key={i}>
                 <input
                     type="checkbox"
-                    id={item}
-                    name={prop.name}
-                    
-                    onChange={prop.handleChecked}
+
+                    name='species'
+                    value={item}
+                    onChange={handleCheckFilter}
                 />
                 <label
-                    htmlFor={item}>
+                    htmlFor="">
                     {item}
                 </label>
             </React.Fragment>

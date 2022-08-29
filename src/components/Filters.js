@@ -1,14 +1,14 @@
 /* import InputText from "./InputText"
 import InputChecked from "./InputChecked";
-import InputSelect from "./InputSelect"; */
+import InputSelect from "./InputSelect"; 
 
 function Filters(prop) {
 
+    const charactersData = prop.charactersData
+
     return (
-        <form>
-           
-        </form>
+       
     )
 }
 
-export default Filters;
+export default Filters; */

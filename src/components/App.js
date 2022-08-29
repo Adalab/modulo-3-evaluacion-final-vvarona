@@ -1,4 +1,5 @@
 import '../styles/App.scss';
+import '../styles/Filter.scss';
 import { useState, useEffect } from 'react';
 import callToApi from '../services/Fetch';
 import ls from '../services/LocalStorage'
@@ -30,7 +31,7 @@ function App() {
     setNameInput('')
     setHouseInput('Gryffindor')
     setSpeciesInput('human')
-    // setCheckInput()
+    setCheckInput([])
   }
 
   const handleNameInput = (ev) => {
@@ -48,8 +49,16 @@ function App() {
     setSpeciesInput(ev.target.value);
   }
 
-  const handleChecked = (ev) => {
-    setCheckInput([...InputChecked], ev.target.value)
+  const handleClickCheck = (value) => {
+
+    if (checkInput.includes(value)) {
+      const newList = checkInput.filter(item => item !== value)
+      console.log('value del check clicked is :' + newList);
+      setCheckInput(newList)
+    } else {
+      setCheckInput([...checkInput, value])
+      console.log('else del if' + value);
+    }
 
   }
 
@@ -88,54 +97,61 @@ function App() {
     ).filter((item) => item.name.toLowerCase().includes(nameInput.toLowerCase()))
 
 
-  const handleCardClick = (ev) => {
-    console.log('cliki en el card de: ' + ev.currentTarget.id);
-  }
-
-
-
 
   return (
-    <div>
+
+
+    <div className='app'>
       <header>
         <h1 className='header-title'>Harry Potter Characters</h1>
       </header>
-      <form>
-        <InputText
-          labelText={'Filtro: '}
-          inputId={'name'}
-          placeholder={'Escribe un nombre '}
-          inputValue={nameInput}
-          onChange={handleNameInput}
-        />
+
+      <form className='form'>
+
+        <fildset className='input-name'>
+
+          <InputText
+            labelText={'Nombre: '}
+            inputId={'name'}
+            placeholder={'Escribe un nombre '}
+            inputValue={nameInput}
+            onChange={handleNameInput}
+            classNameInput={'form-text-input'}
+            classNameLabel={'form-text-label'}
+          />
+
+        </fildset>
         <InputSelect
           labelText={'Casas: '}
           optionsArray={filteredHouse(charactersData)}
           value={houseInput}
           onChange={handleSelectInputForHouse}
         />
+
         <InputSelect
           labelText={'Especie: '}
           optionsArray={filteredSpecies(charactersData)}
           value={speciesInput}
           onChange={handleSelectInputForSpecies}
         />
+
         <InputChecked
           labelText={'Especie: '}
           optionsArray={filteredSpecies(charactersData)}
-
-          onChange={handleChecked}
-
+          value={checkInput}
+          handleChecked={handleClickCheck}
         />
-        <button onClick={handleResetButton}>Resest Filters</button>
+
+        <button className='form-button' onClick={handleResetButton}>Resest Filters</button>
 
       </form>
 
 
 
       <RenderCharactersData
-        onClick={handleCardClick}
+        // onClick={handleCardClick}
         filterCards={filterCards}
+        texInputValue={nameInput}
       />
 
 

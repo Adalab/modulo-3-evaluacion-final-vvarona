@@ -1,24 +1,26 @@
+@import '../styles/Reset.scss';
 
-html {
-    scroll-behavior: smooth;
-  }
+.app {
+    background-color: grey;
+    width: 100%;
+    height: 100%
+}
 
 .footer-arrow {
-    color:blue;
+    color:rgb(85, 85, 85);
+    border-radius:0;
     position:fixed;
-    padding: 20px;
-    margin: 0 16px 8px 0;
-    bottom: 0;
-    right: 0;
+    padding: 5rem 3rem;
+    bottom: 0.5rem;
+    right: 0.7rem;
+    font-size: 4rem;
     transition-property: color;
     cursor: pointer;
-    transition-duration: 5000ms;
+    transition-duration: 200ms;
     text-align: center;
-    //width: 20px;
     
     &:active {
-        color:red;
-        //width: 30px;
+        color:rgb(163, 163, 163);
         
     }
 }
