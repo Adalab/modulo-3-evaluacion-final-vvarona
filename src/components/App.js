@@ -92,14 +92,13 @@ function App() {
     ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase()))
 
   const { pathname } = useLocation();
-  console.log('pathname:', pathname);
+  
   const dataPath = matchPath("user/:characterId", pathname)
-  console.log('dataPath:', dataPath);
+  
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  console.log('characterId:', characterId);
-  console.log('charactersData:', charactersData.length);
+  
   const characterFound = charactersData.find(character => { return character.id === characterId })
-  console.log('characterFound: ' + characterFound);
+
 
   return (
 

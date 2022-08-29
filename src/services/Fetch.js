@@ -3,6 +3,7 @@ import hufflepuffLogo from '../images/hufflepuff.png';
 import ravenclawLogo from '../images/ravenclaw.png';
 import slytherinLogo from '../images/slytherin.png'
 import hogwartsLogo from '../images/hogwarts.png'
+import placeholder from '../images/black-marble-textures-plain.png'
 
 const gryffindor = gryffindorLogo;
 const slytherin = slytherinLogo;
@@ -31,9 +32,9 @@ const getHouseEmblem = (characterHouse) => {
 
 const removeSpace = (string) => string.split(' ').join('');
 
-
-const placeholderImage = "https://via.placeholder.com/210x295/ba7065/666666/?text=No+Image";
-
+const placeholderImage = placeholder;
+/* const placeholderImage = "https://via.placeholder.com/210x295/ba7065/666666/?text=No+Image";
+ */
 const callToApi = () => {
   // Llamamos a la API
 

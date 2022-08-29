@@ -8,9 +8,8 @@ function RenderCharactersData(prop) {
     const renderList = filteredList.map((item, index) => {
 
         return (
-            <li className='card-item' key={index} onClick={prop.onClick} id={item.id}>
+            <li className='card-item stacked' key={index} onClick={prop.onClick} id={item.id}>
                 <Link to={`/user/${item.id}` }>
-                    <i className="card-item-more fa-solid fa-circle-plus"></i>
                     <img
                         className='card-item-img'
                         src={item.image}
