@@ -1,4 +1,5 @@
 import '../styles/CharacterDetail.scss'
+import {Link} from "react-router-dom";
 
 function CharacterDetail(prop) {
 
@@ -13,14 +14,18 @@ function CharacterDetail(prop) {
             />
 
             <h3 className='card-detail-item-name'>{prop.item.name}</h3>
-            <p className='card-detail-item-species'>{prop.item.species}</p>
+            <p className='card-detail-item-species'>{`Species: ${prop.item.species}`}</p>
+            <p className='card-detail-item-patronus'>{`Patronus: ${prop.item.patronus}`}</p>
+            <p className='card-detail-item-alias'>{`Other names: ${prop.item.alias}`}</p>
+            
             <img
                 className='card-detail-item-emblem'
                 title={prop.item.house}
                 alt={prop.item.house}
                 src={prop.item.houseEmblem}
             />
-            <i className="card-detail-item-more fa-solid fa-circle-plus"></i>
+            
+            <Link to={'/'}><button className='button-back'><i className="button-back-icon fa-solid fa-chevron-left"></i>Back</button></Link>
 
         </article>
     )

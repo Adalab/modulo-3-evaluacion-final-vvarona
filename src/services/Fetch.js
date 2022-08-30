@@ -45,11 +45,11 @@ const callToApi = () => {
         {
           name: item.name,
           id: removeSpace(item.name)+i,
-          alias: item.alternate_names === "" ? null : item.alternate_names,
+          alias: item.alternate_names === [] ? 'No info' : item.alternate_names,
           species: item.species,
           house: item.house === "" ? "No es un estudiante" : item.house,
           houseEmblem: getHouseEmblem(item.house),
-          patronus: item.patronus === "" ? "Sin Info" : item.patronus,
+          patronus: item.patronus === "" ? "No info" : item.patronus,
           alive: item.alive,
           image: item.image === "" ? placeholderImage : item.image,
           imageAlt: item.image === "" ? `No hay foto de ${item.name}` : `Foto de ${item.name}`,

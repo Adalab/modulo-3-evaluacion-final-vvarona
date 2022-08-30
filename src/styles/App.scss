@@ -1,4 +1,7 @@
 @import '../styles/Reset.scss';
+@import url('http://fonts.cdnfonts.com/css/harry-potter');
+
+                
 
 .app {
     background-color: grey;
@@ -10,7 +13,7 @@
 }
 
 .footer-arrow {
-    color:rgb(85, 85, 85);
+    color:rgb(210, 210, 210);
     border-radius:0;
     position:fixed;
     padding: 3rem 1.5rem;
@@ -23,14 +26,21 @@
     text-align: center;
     
     &:active {
-        color:rgb(163, 163, 163);
+        color:rgb(255, 255, 255);
         
     }
 }
 
 .header-title{
     text-align: center;
-    font-size: 4rem;
+    font-size: 8rem;
     width: 15ch;
     padding: 10%;
+    font-family: 'Harry Potter', sans-serif;
+    background: #F2D203;
+    background: linear-gradient(to bottom left, #F2D203 0%, #CFA20E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.25));
+
 }

@@ -20,6 +20,8 @@ function App() {
 
 
 
+
+
   useEffect(() => {
     callToApi()
       .then((result) => {
@@ -92,12 +94,18 @@ function App() {
     ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase()))
 
   const { pathname } = useLocation();
-  
+
   const dataPath = matchPath("user/:characterId", pathname)
-  
+
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  
+
   const characterFound = charactersData.find(character => { return character.id === characterId })
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
 
 
   return (
@@ -146,6 +154,8 @@ function App() {
               filterCards={filterCards}
               texInputValue={nameInput}
             />
+
+            <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba" onClick={scrollUp}></i>
           </>}
         />
 
@@ -162,7 +172,7 @@ function App() {
 
       <footer className='footer'>
 
-        <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba"></i>
+
 
       </footer>
 
