@@ -5,7 +5,9 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 0.5rem;
     position: relative;
-    padding: 8rem;
+    padding: 2rem 5rem;
+    transition: all ease-in-out 100ms ;
+    
 
     @media all and (min-width: 680px) {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -19,7 +21,7 @@
 .stacked > * {
     grid-column: 1/2;
     grid-row: 1/2;
-   // border: 1px solid goldenrod;
+    border: 1px solid goldenrod;
 }
 
 .card-item {
@@ -37,6 +39,7 @@
 
     &:hover{
         transform: scale(1.05);
+        transform: rotate(-1deg);
         z-index: 10000;
         box-shadow: 0.35rem 0.65rem 1.5rem rgba(0, 0, 0, 0.7);
     }
@@ -92,4 +95,17 @@
     padding: 1rem;
     margin-top: 1.5rem;
     min-height: 10.5rem;
-} 
+}
+
+.result {
+    &-counter{
+        font-size: 2rem;
+        text-align: center;
+    }
+    &-error{
+        text-align: center;
+        font-size: 5rem;
+        grid-column: span 3;
+        grid-row: 5;
+    }
+}

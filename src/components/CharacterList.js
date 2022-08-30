@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function RenderCharactersData(prop) {
     const filteredList = prop.filterCards;
 
-    const errorHtml = <h2>Uy,  aquí no hay { prop.texInputValue === '' ? ' nada' : ` nadie llamado ${prop.texInputValue}` } </h2>;
+    const errorHtml = <h2 className='result-error'>Uy, parece que  aquí no hay { prop.texInputValue === '' ? ' nada' : ` nadie llamado ${prop.texInputValue}` } </h2>;
     const renderList = filteredList.map((item, index) => {
 
         return (
@@ -33,7 +33,7 @@ function RenderCharactersData(prop) {
 
     return (
         <section>
-            <p>Se encontraron {renderList.length} resultados </p>
+            <p className='result-counter'>Se encontraron {renderList.length} resultados </p>
             <ul className='list-cards'>
                 {filteredList.length === 0 ? errorHtml : renderList}
             </ul>

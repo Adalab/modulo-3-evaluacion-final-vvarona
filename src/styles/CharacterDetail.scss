@@ -1,0 +1,45 @@
+
+.card-detail-item {
+    border: 3px solid red;
+    color:  rgb(239, 235, 220);;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin:  0 5%;
+    max-width: 50rem;
+    background-image: url(../images/black-marble-textures-plain.png);
+    
+    
+    &-img{
+        border: black 2px solid;
+        margin: 1rem;
+        width: 100%;
+        aspect-ratio: 1/1.35;
+        display: block;
+        object-fit: cover;
+        clip-path: polygon(0% 0%, 84% 0%, 100% 15%, 100.3% 100.3%, 84.8% 100.3%, 4.1% 100.3%, 0% 100.3%, 0% 17%);
+    }
+
+    &-name {
+        font-size: 4rem;
+        grid-column: 2/3;
+        grid-row: 0;
+        justify-self: end;
+        align-self: center;
+        grid-row: 0;
+        z-index: 1;
+    }
+    &-species{
+        font-size: 1.8rem;
+        grid-column: 3;
+        grid-row: 2;
+    }
+    &-emblem{        
+        aspect-ratio: 1/1;
+        width: 70%;
+        object-fit: contain;
+        grid-column: 3;
+        grid-row: -1;
+        align-self: end;
+        justify-self: end;
+}
+}
