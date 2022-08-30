@@ -5,7 +5,8 @@
 
 .app {
     background-color: rgb(110, 110, 110);
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100%;
     min-height: 100vh;
     max-height: 100%;
     display: grid;
@@ -24,6 +25,8 @@
     cursor: pointer;
     transition-duration: 200ms;
     text-align: center;
+
+    background-color: rgb(110, 110, 110);
     
     &:active {
         color:rgb(255, 255, 255);
