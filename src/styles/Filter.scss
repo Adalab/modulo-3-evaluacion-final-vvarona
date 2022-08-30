@@ -1,10 +1,83 @@
 
 .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     font-size: 2rem;
-    &-text-label {
-        //
-    }
+    padding: 0 5rem;
+    gap:1rem;
+    
     &-text-input {
-        //
+        padding: 1rem .5rem;
+        font-size: 1.8rem;
+        grid-column: span 2;
+        &:focus{
+            outline: #F2D203 solid 0.3rem;
+            border-radius: .2rem
+        }
     }
+    &-button{
+        grid-column: span 2;
+        padding: 1rem 3rem;
+        background: transparent;
+        border: .3rem solid rgb(239, 235, 220);
+        border-radius: 1rem;
+        color:rgb(239, 235, 220);
+        font-weight: 900;
+        font-size: 1.8rem;
+        transition-timing-function: ease-out;
+        transition-duration: 70ms;
+        
+        &:active{
+            background-color: rgba(255, 255, 255, 0.266);
+            transform: scale(0.95);
+        }
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.266);
+        }
+    }
+    
+}
+
+.select{
+    &-input{
+        border: .3rem solid rgb(255, 255, 255);
+        border-radius: 0.2rem;
+        color:rgb(255, 255, 255);
+        background-color: transparent;
+        font-weight: 900;
+        font-size: 1.8rem;
+        padding: 1rem .5rem;
+        font-size: 1.8rem;
+        grid-column: span 2;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.266);
+        }
+    }
+    &-option{
+            background-color:grey;
+            border: .3rem solid rgb(255, 255, 255);
+            
+    }
+}
+.check{
+    &-label{
+        margin: 1.5rem 1rem 3rem 1rem ;
+        text-transform: capitalize;
+        padding: 1rem;
+    }
+    &-input{
+        margin: 2rem 0 2rem 0;
+        padding: 1rem;
+    }
+    &-section{
+        border: none;
+        grid-column: span 2;
+        text-align: center;
+        padding: 3rem 0;
+    }
+}
+
+input[type=checkbox] {
+    transform: scale(1.8);
+    display: inline;
 }

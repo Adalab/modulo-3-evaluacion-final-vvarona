@@ -14,6 +14,7 @@ function InputText(prop) {
                 placeholder={prop.placeholder}
                 value={prop.inputValue}
                 onChange={prop.onChange}
+                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
             />
         </>
     )

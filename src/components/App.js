@@ -139,7 +139,7 @@ function App() {
                 value={houseInput}
                 onChange={handleSelectInputForHouse}
               />
-
+        
               <InputChecked
                 optionsArray={filteredSpecies(charactersData)}
                 checkedValues={checkInput}
