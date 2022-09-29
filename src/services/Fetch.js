@@ -38,7 +38,7 @@ const placeholderImage = placeholder;
 const callToApi = () => {
   // Llamamos a la API
 
-  return fetch("http://hp-api.herokuapp.com/api/characters")
+  return fetch("https://hp-api.herokuapp.com/api/characters")
     .then((response) => response.json())
     .then((response) => {
       const result = response.map((item, i) => (
@@ -50,7 +50,7 @@ const callToApi = () => {
           house: item.house === "" ? "No es un estudiante" : item.house,
           houseEmblem: getHouseEmblem(item.house),
           patronus: item.patronus === "" ? "No info" : item.patronus,
-          alive: item.alive,
+          alive: item.alive === true ? "alive" : "dead" ,
           image: item.image === "" ? placeholderImage : item.image,
           imageAlt: item.image === "" ? `No hay foto de ${item.name}` : `Foto de ${item.name}`,
         }

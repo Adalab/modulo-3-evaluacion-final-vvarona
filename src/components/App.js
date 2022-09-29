@@ -7,6 +7,7 @@ import callToApi from '../services/Fetch';
 import InputSelect from './InputSelect';
 import InputChecked from './InputChecked';
 import InputText from './InputText';
+import InputRadio from './InputRadio';
 import RenderCharactersData from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import { matchPath, useLocation } from "react-router";
@@ -17,10 +18,7 @@ function App() {
   const [nameInput, setNameInput] = useState('');
   const [houseInput, setHouseInput] = useState('Gryffindor');
   const [checkInput, setCheckInput] = useState([]);
-
-
-
-
+  const [radioInput, setRadioInput] = useState('alive')
 
   useEffect(() => {
     callToApi()
@@ -60,6 +58,11 @@ function App() {
 
   }
 
+  const handleRadio = (value) => {
+    console.log(value);
+    setRadioInput(value)
+  }
+
 
   const filteredHouse = (characterList) => {
     const properties = characterList.map((item) => item.house)
@@ -91,7 +94,10 @@ function App() {
       } return true
     },
 
-    ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase()))
+    ).filter((character) => character.name.toLowerCase().includes(nameInput.toLowerCase())
+
+    ).filter((character) => character.alive === radioInput)
+
 
   const { pathname } = useLocation();
 
@@ -139,11 +145,17 @@ function App() {
                 value={houseInput}
                 onChange={handleSelectInputForHouse}
               />
-        
+
               <InputChecked
                 optionsArray={filteredSpecies(charactersData)}
                 checkedValues={checkInput}
                 handleChecked={handleClickCheck}
+              />
+
+              <InputRadio
+                handleRadio={handleRadio}
+                value={radioInput}
+                radioInput={radioInput}
               />
 
               <button className='form-button' onClick={handleResetButton}>Resest Filters</button>

@@ -12,7 +12,7 @@ function InputChecked(prop) {
     const mapedChecked = array.map((item, i) => {
 
         return (
-            <React.Fragment key={i} className={"check-label-container"}>
+            <div key={i} className={"check-label-container"}>
                 <input
                     className="check-input"
                     type="checkbox"
@@ -27,7 +27,7 @@ function InputChecked(prop) {
                     htmlFor={item}>
                     {item}
                 </label>
-            </React.Fragment>
+            </div>
         )
     }
     )
