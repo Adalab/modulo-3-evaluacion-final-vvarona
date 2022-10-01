@@ -2,25 +2,22 @@
 
 .list-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 0.5rem;
     position: relative;
-    padding: 2rem 5rem;
+    padding: 2rem 15rem;
     transition: all ease-in-out 100ms ;
-    
 
-    @media all and (min-width: 680px) {
-        grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        padding: 10rem;
+        margin: 0 ;
+      }
+
+    @media (max-width: 400px) {
+        padding: 2.5rem
+        
     }
-}
-
-.stacked {
-    display: grid;
-}
-
-.stacked > * {
-    grid-column: 1/2;
-    grid-row: 1/2;
 }
 
 .card-item {
@@ -33,13 +30,15 @@
     
     box-shadow: 0.25rem 0.5rem 0.75rem rgba(0, 0, 0, 0.5);
 
-    transition-duration: 200ms;
-    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+
+    
 
     &:hover{
         transform: scale(1.05);
         transform: rotate(-1deg);
-        z-index: 10000;
+        z-index: 2;
         box-shadow: 0.35rem 0.65rem 1.5rem rgba(0, 0, 0, 0.7);
     }
 

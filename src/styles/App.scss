@@ -1,16 +1,21 @@
 @import '../styles/Reset.scss';
 @import url('http://fonts.cdnfonts.com/css/harry-potter');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
 
                 
-
-.app {
+html {
+    
     background-color: rgb(110, 110, 110);
-    min-width: 100vw;
-    max-width: 100%;
-    min-height: 100vh;
-    max-height: 100%;
+}
+.app {
     display: grid;
     place-items: center;
+    font-family: 'Garamond', serif;
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+      }
 }
 
 .footer-arrow {
@@ -32,7 +37,7 @@
         color:rgb(255, 255, 255);
     }
 
-    @media all and (max-width: 480px) {
+    @media all and (max-width: 600px) {
         transform: scale(1.5);
     }
 }
