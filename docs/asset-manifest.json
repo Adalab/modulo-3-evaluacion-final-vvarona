@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.955f7dcf.css",
-    "main.js": "./static/js/main.61f3416b.js",
+    "main.css": "./static/css/main.7e0ff4eb.css",
+    "main.js": "./static/js/main.e22a8b38.js",
     "static/media/black-marble-textures-plain.png": "./static/media/black-marble-textures-plain.1333f433e8c47067c6cf.png",
+    "static/media/logo.png": "./static/media/logo.d894a534b0ebf845fc89.png",
     "static/media/hogwarts.png": "./static/media/hogwarts.c7e821a69c211208c028.png",
     "static/media/hufflepuff.png": "./static/media/hufflepuff.d29869c661b1c82539cc.png",
     "static/media/slytherin.png": "./static/media/slytherin.19d44394c5cce876cf3f.png",
     "static/media/ravenclaw.png": "./static/media/ravenclaw.8a366b51a1acf7eff2e6.png",
     "static/media/gryffindor.png": "./static/media/gryffindor.2eb2ec73c9c1232f9730.png",
     "index.html": "./index.html",
-    "main.955f7dcf.css.map": "./static/css/main.955f7dcf.css.map",
-    "main.61f3416b.js.map": "./static/js/main.61f3416b.js.map"
+    "main.7e0ff4eb.css.map": "./static/css/main.7e0ff4eb.css.map",
+    "main.e22a8b38.js.map": "./static/js/main.e22a8b38.js.map"
   },
   "entrypoints": [
-    "static/css/main.955f7dcf.css",
-    "static/js/main.61f3416b.js"
+    "static/css/main.7e0ff4eb.css",
+    "static/js/main.e22a8b38.js"
   ]
 }
