@@ -82,13 +82,15 @@
     }
     &-section{
         border: none;
+        display: grid;
+        place-content: center;
         grid-column: span 2;
-        text-align: center;
+        text-align: left;
         padding: 3rem 0;
+        justify-items: left;
     }
 }
 
 input[type=checkbox] {
     transform: scale(1.8);
-    display: inline;
 }

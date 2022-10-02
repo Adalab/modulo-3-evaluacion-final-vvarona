@@ -47,12 +47,12 @@ const callToApi = () => {
           id: removeSpace(item.name)+i,
           alias: item.alternate_names === [] ? 'No info' : item.alternate_names,
           species: item.species,
-          house: item.house === "" ? "No es un estudiante" : item.house,
+          house: item.house === "" ? "Not a student" : item.house,
           houseEmblem: getHouseEmblem(item.house),
           patronus: item.patronus === "" ? "No info" : item.patronus,
           alive: item.alive === true ? "alive" : "dead" ,
           image: item.image === "" ? placeholderImage : item.image,
-          imageAlt: item.image === "" ? `No hay foto de ${item.name}` : `Foto de ${item.name}`,
+          imageAlt: item.image === "" ? `We don´t have a photo of ${item.name}` : `Photo of ${item.name}`,
         }
       )
       )

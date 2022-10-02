@@ -16,7 +16,7 @@ function InputSelect(prop) {
                 onChange={prop.onChange}
                 className="select-input">
                 {mapedOptions}
-                <option className="select-option" value='all'>Todos</option>
+                <option className="select-option" value='all'>All</option>
             </select>
         </>
     )

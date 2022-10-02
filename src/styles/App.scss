@@ -5,7 +5,7 @@
                 
 html {
     
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(66, 66, 66);
 }
 .app {
     display: grid;
@@ -31,7 +31,9 @@ html {
     transition-duration: 200ms;
     text-align: center;
 
-    background-color: rgb(110, 110, 110);
+    &:hover{
+        color: white;
+    }
     
     &:active {
         color:rgb(255, 255, 255);
@@ -42,11 +44,32 @@ html {
     }
 }
 
+.header{
+    display: grid;  
+    place-items: center;
+    padding: 5rem;      
+
+    &-logo{
+        width: 80%;        
+    }
+}
+
+.footer {
+    font-size: 1.9rem;
+    text-align: center;
+    padding: 10rem 0 5rem 0;
+    color: rgba(255, 255, 255, 0.525);
+    
+
+    &-link {
+        text-decoration:underline;
+    }
+}
+
+/* 
 .header-title{
     text-align: center;
-    font-size: 8rem;
-    width: 15ch;
-    padding: 10%;
+    width: 90vw;
     font-family: 'Harry Potter', sans-serif;
     background: #F2D203;
     background: linear-gradient(to bottom left, #F2D203 0%, #CFA20E 100%);
@@ -54,4 +77,4 @@ html {
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.25));
 
-}
+} */

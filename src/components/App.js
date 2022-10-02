@@ -11,6 +11,8 @@ import InputRadio from './InputRadio';
 import RenderCharactersData from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import { matchPath, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import logo from '../images/logo.png';
 
 function App() {
 
@@ -33,7 +35,8 @@ function App() {
     ev.preventDefault();
     setNameInput('')
     setHouseInput('Gryffindor')
-    setCheckInput([])
+    setCheckInput([]);
+    setRadioInput('alive')
   }
 
 
@@ -118,9 +121,14 @@ function App() {
 
     <div className='app'>
 
-      <header>
-        <h1 className='header-title'>Harry Potter Characters</h1>
+      <Link to={'/'}><header className='header'>
+        <img
+          src={logo}
+          alt="Harry Potter Logo"
+          className='header-logo'
+        />
       </header>
+      </Link>
 
       <Routes>
         <Route
@@ -130,9 +138,9 @@ function App() {
             <form className='form'>
 
               <InputText
-                labelText={'Nombre: '}
+                labelText={'Name: '}
                 inputId={'name'}
-                placeholder={'Escribe un nombre '}
+                placeholder={'Search by name'}
                 inputValue={nameInput}
                 onChange={handleNameInput}
                 classNameInput={'form-text-input'}
@@ -140,7 +148,7 @@ function App() {
               />
 
               <InputSelect
-                labelText={'Casas: '}
+                labelText={'House: '}
                 optionsArray={filteredHouse(charactersData)}
                 value={houseInput}
                 onChange={handleSelectInputForHouse}
@@ -167,7 +175,7 @@ function App() {
               texInputValue={nameInput}
             />
 
-            <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Ir arriba" onClick={scrollUp}></i>
+            <i className="fa-solid fa-arrow-up fa-xl footer-arrow" title="Go to top" onClick={scrollUp}></i>
           </>}
         />
 
@@ -183,9 +191,8 @@ function App() {
 
 
       <footer className='footer'>
-
-
-
+        <p>Made with love by Victoria Varona in 2022</p>
+        <a className='footer-link' href='https://github.com/vvarona' title='Go to my Github'>See more of my work..</a>
       </footer>
 
     </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CharacterDetail(prop) {
 
     if (!prop.item) {
-        return <p>personaje no existe</p>
+        return <p>Character not Found</p>
     } else {
 
         return (
@@ -29,7 +29,7 @@ function CharacterDetail(prop) {
                     src={prop.item.houseEmblem}
                 />
 
-                <Link to={'/'}><button className='button-back'><i className="button-back-icon fa-solid fa-chevron-left"></i>Back</button></Link>
+                <Link to={'/'}><button className='button-back'><i className="button-back-icon fa-solid fa-chevron-left"></i>Go back</button></Link>
 
             </article>
         )
