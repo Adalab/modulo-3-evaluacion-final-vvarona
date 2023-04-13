@@ -192,7 +192,7 @@ function App() {
 
       <footer className='footer'>
         <p>Made with love by Victoria Varona in 2022</p>
-        <a className='footer-link' href='https://github.com/vvarona' title='Go to my Github'>See more of my work..</a>
+        <a className='footer-link' href='https://github.com/vvarona' title='Go to my Github'>See more of my work...</a>
       </footer>
 
     </div>
