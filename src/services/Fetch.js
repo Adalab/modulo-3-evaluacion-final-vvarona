@@ -38,7 +38,7 @@ const placeholderImage = placeholder;
 const callToApi = () => {
   // Llamamos a la API
 
-  return fetch("https://hp-api.herokuapp.com/api/characters")
+  return fetch("https://hp-api.onrender.com/api/characters")
     .then((response) => response.json())
     .then((response) => {
       const result = response.map((item, i) => (
